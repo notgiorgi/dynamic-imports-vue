@@ -11,7 +11,7 @@ export default {
       /* webpackChunkName: "custom_component" */ `CustomComponent/${this.customComponentId}.vue`
     )
       .then(module => {
-        this.component = module.default;
+        this.component = Vue.component(this.customComponentId, module.default);
         this.loading = false;
       })
       .catch(err => console.error(err));
