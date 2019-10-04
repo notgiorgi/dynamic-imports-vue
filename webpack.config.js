@@ -5,7 +5,7 @@ const babelConfig = require('./.babelrc.js')
 
 module.exports = function setupWebpackConfiguration() {
   return {
-    mode: 'production',
+    mode: 'development',
     entry: path.join(__dirname, './src/index.js'),
     output: {
       filename: '[name].js',
@@ -36,7 +36,9 @@ module.exports = function setupWebpackConfiguration() {
     resolve: {
       alias: {
         CustomComponent: path.join(__dirname, './custom_component_storage'),
+        Page: path.join(__dirname, './pages'),
       },
+      extensions: ['.js', '.vue'],
     },
     plugins: [new VueLoaderPlugin()],
   }

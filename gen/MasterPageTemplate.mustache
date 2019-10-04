@@ -1,0 +1,35 @@
+<script>
+{{#sections}}
+import {{name}} from 'CustomComponent/{{name}}';
+{{/sections}}
+
+  export default {
+    props: ["pageData"],
+    components: {
+      {{#sections}}
+      {{name}},
+      {{/sections}}
+    },
+    computed: {
+      {{#sections}}
+      {{name}}Data() {
+        return this.pageData.section_data.find(
+          section => section.section_id === {{id}}
+        );
+      },
+      {{/sections}}
+    },
+    render(h) {
+      return h("div", [
+        h('h1', ["Welcome to " + this.pageData.name + " Page"]),
+        {{#sections}}
+        h("{{name}}", {
+          props: {
+            ...this.{{name}}Data
+          }
+        }),
+        {{/sections}}
+      ]);
+    }
+  };
+</script>

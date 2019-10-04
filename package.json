@@ -6,6 +6,7 @@
   "dependencies": {
     "babel-loader": "^8.0.6",
     "isomorphic-unfetch": "^3.0.0",
+    "mustache": "^3.1.0",
     "next": "^9.0.6",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
